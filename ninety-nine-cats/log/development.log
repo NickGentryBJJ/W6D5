@@ -22,3 +22,90 @@ Migrating to CreateCats (20230505210250)
   [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
   [1m[36mCat Create (1.7ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2024-03-09"], ["color", "white"], ["name", "nick"], ["sex", "M"], ["description", nil], ["created_at", "2023-05-05 21:33:35.105905"], ["updated_at", "2023-05-05 21:33:35.105905"]]
   [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (687.0ms)[0m  [1m[35mCREATE DATABASE "ninety_nine_cats_development" ENCODING = 'unicode'[0m
+  [1m[35m (498.0ms)[0m  [1m[35mCREATE DATABASE "ninety_nine_cats_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (20.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(723150122408807205)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCats (20230505210250)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "cats" ("id" bigserial primary key, "birth_date" date NOT NULL, "color" character varying NOT NULL, "name" character varying NOT NULL, "sex" character varying(1) NOT NULL, "description" text, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20230505210250"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-05-05 21:43:00.122109"], ["updated_at", "2023-05-05 21:43:00.122109"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(723150122408807205)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCat Load (1.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (2.3ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2015-07-03"], ["color", "orange"], ["name", "bob"], ["sex", "M"], ["description", nil], ["created_at", "2023-05-05 21:49:46.361347"], ["updated_at", "2023-05-05 21:49:46.361347"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2016-04-14"], ["color", "black"], ["name", "quincy"], ["sex", "M"], ["description", nil], ["created_at", "2023-05-05 21:49:46.371812"], ["updated_at", "2023-05-05 21:49:46.371812"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (16.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Create (0.4ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2021-04-03"], ["color", "white"], ["name", "stella"], ["sex", "F"], ["description", nil], ["created_at", "2023-05-05 21:49:46.377467"], ["updated_at", "2023-05-05 21:49:46.377467"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2023-05-05 14:59:08 -0700
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/laurenarmstrong/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/laurenarmstrong/.rbenv/versions/3.1.1/lib/ruby/gems/3.1.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 5.7ms | Allocations: 526)
+Completed 200 OK in 30ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 2795)
+
+
+Started GET "/" for ::1 at 2023-05-05 14:59:19 -0700
+
+ActionController::RoutingError - uninitialized constant CatsController
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+            raise MissingController.new(error.message, error.name)
+            ^^^^^:
+
+Started POST "/__better_errors/23c7cae070dda799/variables" for ::1 at 2023-05-05 14:59:20 -0700
+Started GET "/" for ::1 at 2023-05-05 15:35:39 -0700
+Processing by CatsController#index as */*
+  [1m[36mCat Load (8.8ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:14:in `index'
+Completed 200 OK in 412ms (Views: 403.7ms | ActiveRecord: 323.0ms | Allocations: 11168)
+
+
+Started POST "/cats" for ::1 at 2023-05-05 15:39:29 -0700
+Processing by CatsController#create as */*
+  Parameters: {"birth_date"=>"2014-05-10", "color"=>"grey", "name"=>"Helena", "sex"=>"M", "description"=>"social but aloof"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:5:in `create'
+  [1m[36mCat Create (7.8ms)[0m  [1m[32mINSERT INTO "cats" ("birth_date", "color", "name", "sex", "description", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["birth_date", "2014-05-10"], ["color", "grey"], ["name", "Helena"], ["sex", "M"], ["description", "social but aloof"], ["created_at", "2023-05-05 22:39:30.002600"], ["updated_at", "2023-05-05 22:39:30.002600"]]
+  ↳ app/controllers/cats_controller.rb:5:in `create'
+  [1m[36mTRANSACTION (28.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:5:in `create'
+Completed 200 OK in 51ms (Views: 1.1ms | ActiveRecord: 36.5ms | Allocations: 3870)
+
+
+Started PATCH "/cats/4" for ::1 at 2023-05-05 15:40:17 -0700
+Processing by CatsController#update as */*
+  Parameters: {"birth_date"=>"2014-05-10", "color"=>"grey", "name"=>"Helena", "sex"=>"F", "description"=>"social but aloof", "id"=>"4"}
+  [1m[36mCat Load (2.7ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:26:in `update'
+[31mUnpermitted parameter: :id. Context: { controller: CatsController, action: update, request: #<ActionDispatch::Request:0x000000010d9f3220>, params: {"birth_date"=>"2014-05-10", "color"=>"grey", "name"=>"Helena", "sex"=>"F", "description"=>"social but aloof", "controller"=>"cats", "action"=>"update", "id"=>"4"} }[0m
+  [1m[36mTRANSACTION (26.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/cats_controller.rb:27:in `update'
+  [1m[36mCat Update (7.4ms)[0m  [1m[33mUPDATE "cats" SET "sex" = $1, "updated_at" = $2 WHERE "cats"."id" = $3[0m  [["sex", "F"], ["updated_at", "2023-05-05 22:40:17.514543"], ["id", 4]]
+  ↳ app/controllers/cats_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/cats_controller.rb:27:in `update'
+Completed 200 OK in 107ms (Views: 1.1ms | ActiveRecord: 42.2ms | Allocations: 5906)
+
+
+Started GET "/cats/4" for ::1 at 2023-05-05 15:40:56 -0700
+Processing by CatsController#show as */*
+  Parameters: {"birth_date"=>"2014-05-10", "color"=>"grey", "name"=>"Helena", "sex"=>"F", "description"=>"social but aloof", "id"=>"4"}
+  [1m[36mCat Load (0.6ms)[0m  [1m[34mSELECT "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:18:in `show'
+Completed 200 OK in 12ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 694)
+
+

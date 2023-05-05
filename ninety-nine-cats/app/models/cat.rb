@@ -23,4 +23,8 @@ class Cat < ApplicationRecord
             errors.add(:birth_date, "birth date cannot be in future")
         end
     end
+
+    def age
+        Date.today.year - birth_date.year
+    end
 end
