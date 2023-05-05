@@ -11,12 +11,12 @@ class CatsController < ApplicationController
 
     def index
         @cats = Cat.all
-        render json: @cats
+        render :index
     end
 
     def show
         @cat = Cat.find(params[:id])
-        render json: @cat
+        render :show
     end
 
     def update
